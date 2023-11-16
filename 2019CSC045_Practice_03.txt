@@ -1,0 +1,225 @@
+					Practice 03
+
+
+1.
+
+cscuser@cscuser:~$ cat > task3.txt
+Check permissions!!
+cscuser@cscuser:~$ ls -l task3.txt
+-rw-rw-r-- 1 cscuser cscuser     20 Nov 16 14:57  task3.txt
+
+//Change permission
+
+cscuser@cscuser:~$ chmod 444 task3.txt
+cscuser@cscuser:~$ ls -l task3.txt
+-r--r--r-- 1 cscuser cscuser 20 Nov 16 14:57 task3.txt
+
+
+2.
+
+cscuser@cscuser:~$ cp /bin/sh  ~/
+cscuser@cscuser:~$ ls
+'~'                           MyFolder2
+ 2019csc024.txt               passwd
+ 2019CSC045_Practice_03.txt   Pictures
+ copy2.txt                    play
+ CSC024                       poetry
+ cscuser.txt                  potry
+ Desktop                     'Practical Session 02'
+ Documents                    Public
+ Downloads                    secret-of-the-universe
+ memo.txt                     secret-of-the-universe.txt
+ message                      sh
+ message.txt                  snap
+ Music                        sonnet-18.txt
+ mybackups                    soonet-18.txt
+ mybackups1                   task3.txt
+ MyBkup                       temp
+ MyData                       Templates
+ myDocs                       text.txt
+ MyDocs                       unixstuff
+ mydocuments                  Videos
+
+
+cscuser@cscuser:~$ chmod +s sh
+cscuser@cscuser:~$ ls -l sh
+-rwsr-sr-x 1 cscuser cscuser 125688 Nov 16 15:14 sh
+
+
+cscuser@cscuser:~$ sudo apt-get update
+[sudo] password for cscuser: 
+Hit:1 http://gb.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:3 http://gb.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Hit:4 http://gb.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Fetched 229 kB in 2s (134 kB/s)
+Reading package lists... Done
+---------------------------------------------------------------------------------------------------------------------------------------
+
+cscuser@cscuser:~$ sudo apt-get install openssh-server
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  ncurses-term openssh-client openssh-sftp-server ssh-import-id
+Suggested packages:
+  keychain libpam-ssh monkeysphere ssh-askpass molly-guard
+The following NEW packages will be installed
+  ncurses-term openssh-server openssh-sftp-server ssh-import-id
+The following packages will be upgraded:
+  openssh-client
+1 to upgrade, 4 to newly install, 0 to remove and 255 not to upgrade.
+Need to get 1,655 kB of archives.
+After this operation, 6,046 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://gb.archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-client amd64 1:8.9p1-3ubuntu0.4 [905 kB]
+Get:2 http://gb.archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-sftp-server amd64 1:8.9p1-3ubuntu0.4 [38.7 kB]
+Get:3 http://gb.archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-server amd64 1:8.9p1-3ubuntu0.4 [434 kB]
+Get:4 http://gb.archive.ubuntu.com/ubuntu jammy-updates/main amd64 ncurses-term all 6.3-2ubuntu0.1 [267 kB]
+Get:5 http://gb.archive.ubuntu.com/ubuntu jammy/main amd64 ssh-import-id all 5.11-0ubuntu1 [10.1 kB]
+Fetched 1,655 kB in 2s (740 kB/s)        
+Preconfiguring packages ...
+(Reading database ... 206750 files and directories currently installed.)
+Preparing to unpack .../openssh-client_1%3a8.9p1-3ubuntu0.4_amd64.deb ...
+Unpacking openssh-client (1:8.9p1-3ubuntu0.4) over (1:8.9p1-3ubuntu0.3) ...
+Selecting previously unselected package openssh-sftp-server.
+Preparing to unpack .../openssh-sftp-server_1%3a8.9p1-3ubuntu0.4_amd64.deb ...
+Unpacking openssh-sftp-server (1:8.9p1-3ubuntu0.4) ...
+Selecting previously unselected package openssh-server.
+Preparing to unpack .../openssh-server_1%3a8.9p1-3ubuntu0.4_amd64.deb ...
+Unpacking openssh-server (1:8.9p1-3ubuntu0.4) ...
+Selecting previously unselected package ncurses-term.
+Preparing to unpack .../ncurses-term_6.3-2ubuntu0.1_all.deb ...
+Unpacking ncurses-term (6.3-2ubuntu0.1) ...
+Selecting previously unselected package ssh-import-id.
+Preparing to unpack .../ssh-import-id_5.11-0ubuntu1_all.deb ...
+Unpacking ssh-import-id (5.11-0ubuntu1) ...
+Setting up openssh-client (1:8.9p1-3ubuntu0.4) ...
+Setting up ssh-import-id (5.11-0ubuntu1) ...
+Setting up ncurses-term (6.3-2ubuntu0.1) ...
+Setting up openssh-sftp-server (1:8.9p1-3ubuntu0.4) ...
+Setting up openssh-server (1:8.9p1-3ubuntu0.4) ...
+
+Creating config file /etc/ssh/sshd_config with new version
+Creating SSH2 RSA key; this may take some time ...
+3072 SHA256:0mM7zy29RoIjFys/yMP5QzPU02bR9PsgcQrINn0LWpc root@cscuser (RSA)
+Creating SSH2 ECDSA key; this may take some time ...
+256 SHA256:M6j6e4SyqkGWTLfz5cHKzNp4wxoGDA96tfMU2gOrb6Y root@cscuser (ECDSA)
+Creating SSH2 ED25519 key; this may take some time ...
+256 SHA256:jUyKnVtcfPH9rmFRyrHHwblTq31GPJWMljcAr0EQypo root@cscuser (ED25519)
+Created symlink /etc/systemd/system/sshd.service → /lib/systemd/system/ssh.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/ssh.service → /lib/systemd/system/ssh.service.
+rescue-ssh.target is a disabled or a static unit, not starting it.
+ssh.socket is a disabled or a static unit, not starting it.
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for ufw (0.36.1-4build1) ...
+-----------------------------------------------------------------------------------------------------------------------------
+
+cscuser@cscuser:~$ ifconfig
+enp1s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.20.70.110  netmask 255.255.255.0  broadcast 10.20.70.255
+        inet6 fe80::e0e7:4c60:88e4:d9d  prefixlen 64  scopeid 0x20<link>
+        ether 80:e8:2c:d3:dd:7f  txqueuelen 1000  (Ethernet)
+        RX packets 70549  bytes 78350130 (78.3 MB)
+        RX errors 0  dropped 145  overruns 0  frame 0
+        TX packets 33270  bytes 4639096 (4.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 52581  bytes 60990612 (60.9 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 52581  bytes 60990612 (60.9 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+cscuser@cscuser:~$ ssh cscuser@10.20.70.109
+
+cscuser@cscuser:~$ ls
+'~'                           MyFolder2
+ 2019csc024.txt               passwd
+ 2019CSC045_Practice_03.txt   Pictures
+ copy2.txt                    play
+ CSC024                       poetry
+ cscuser.txt                  potry
+ Desktop                     'Practical Session 02'
+ Documents                    Public
+ Downloads                    secret-of-the-universe
+ memo.txt                     secret-of-the-universe.txt
+ message                      sh
+ message.txt                  snap
+ Music                        sonnet-18.txt
+ mybackups                    soonet-18.txt
+ mybackups1                   task3.txt
+ MyBkup                       temp
+ MyData                       Templates
+ myDocs                       text.txt
+ MyDocs                       unixstuff
+ mydocuments                  Videos
+cscuser@cscuser:~$ ls
+'~'                           mybackups    'Practical Session 02'
+ 2019csc024.txt               mybackups1    Public
+ 2019CSC045_Practice_03.txt   MyBkup        secret-of-the-universe
+ copy2.txt                    MyData        secret-of-the-universe.txt
+ CSC024                       myDocs        snap
+ cscuser.txt                  MyDocs        sonnet-18.txt
+ Desktop                      mydocuments   soonet-18.txt
+ Documents                    MyFolder2     task3.txt
+ Downloads                    passwd        temp
+ memo.txt                     Pictures      Templates
+ message                      play          text.txt
+ message.txt                  poetry        unixstuff
+ Music                        potry         Videos
+cscuser@cscuser:~$ ssh cscuser@10.20.70.109
+The authenticity of host '10.20.70.109 (10.20.70.109)' can't be established.
+ED25519 key fingerprint is SHA256:h4V8tm4Bq74s30R8KbP/1nJwxt+maI7bS37+TRtNvB8.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? no
+Host key verification failed.
+cscuser@cscuser:~$ ssh cscuser@10.20.70.109
+The authenticity of host '10.20.70.109 (10.20.70.109)' can't be established.
+ED25519 key fingerprint is SHA256:h4V8tm4Bq74s30R8KbP/1nJwxt+maI7bS37+TRtNvB8.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.20.70.109' (ED25519) to the list of known hosts.
+cscuser@10.20.70.109's password: 
+Welcome to Ubuntu 22.04 LTS (GNU/Linux 6.2.0-36-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+253 updates can be applied immediately.
+2 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+1 updates could not be installed automatically. For more details,
+see /var/log/unattended-upgrades/unattended-upgrades.log
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+cscuser@cscuser:~$ ls
+ 2019CSC022   message         Myfolder2                    temp
+ cm           Music           new.txt                      Templates
+ copy2.txt    mybackups       permission.txt               test
+ Desktop      myBackups.tgz   Pictures                     unixstuff
+ Documents    myBackup.tgz    poetry                      'Untitled Document 1'
+ Downloads    MyBkUp          practical1                  'Untitled Document 2'
+ Folder1      MyData          Public                       Videos
+ Folder2      myDocs          secret-of-the-universe.txt
+ Lec1         mydocuments     snap
+ memo.txt     Myfolder1       sonnet-18.txt.
+
+
+cscuser@cscuser:~$ exit
+logout
+Connection to 10.20.70.109 closed.
+
+
