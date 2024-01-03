@@ -1,0 +1,189 @@
+cscuser@cscuser:~$ openssl genrsa -des3 -out csc405.key 4096
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+cscuser@cscuser:~$ openssl req -new -key csc405.key -out example.csr 
+Enter pass phrase for csc405.key:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:SL
+State or Province Name (full name) [Some-State]:Jaffna
+Locality Name (eg, city) []:Jaffna
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:UOJ
+Organizational Unit Name (eg, section) []:DCS
+Common Name (e.g. server FQDN or YOUR name) []:.
+Email Address []:.
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+cscuser@cscuser:~$ openssl x509 -req -days 365 -in csc405.csr -signkey csc405.key -out csc405.crt 
+Enter pass phrase for csc405.key:
+Can't open "csc405.csr" for reading, No such file or directory
+40F79600787F0000:error:80000002:system library:BIO_new_file:No such file or directory:../crypto/bio/bss_file.c:67:calling fopen(csc405.csr, r)
+40F79600787F0000:error:10000080:BIO routines:BIO_new_file:no such file:../crypto/bio/bss_file.c:75:
+Unable to load certificate request input
+cscuser@cscuser:~$ openssl req -new -key csc405.key -out csc405.csr 
+Enter pass phrase for csc405.key:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:SL
+State or Province Name (full name) [Some-State]:Nothern
+Locality Name (eg, city) []:Jaffna
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:UOJ
+Organizational Unit Name (eg, section) []:DCS
+Common Name (e.g. server FQDN or YOUR name) []:.
+Email Address []:.
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+cscuser@cscuser:~$ openssl x509 -req -days 365 -in csc405.csr -signkey csc405.key -out csc405.crt 
+Enter pass phrase for csc405.key:
+Certificate request self-signature ok
+subject=C = SL, ST = Nothern, L = Jaffna, O = UOJ, OU = DCS
+cscuser@cscuser:~$ more csc405.csr
+-----BEGIN CERTIFICATE REQUEST-----
+MIIEkTCCAnkCAQAwTDELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB05vdGhlcm4xDzAN
+BgNVBAcMBkphZmZuYTEMMAoGA1UECgwDVU9KMQwwCgYDVQQLDANEQ1MwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDiES7DRWdJHTeJcqlwnPm9QtvDpQmu
+IE2g7X+3k4p/p5f3+Mgq7BOZocW+MQRoO9yn8TN0q2gExdp64VqLmG7JcMfAhDOx
+KGmyWXWKu8Kwzs2ZBifhixn7rtsGXTRzuQ2ptw/ETPKSr9Ao/SfR3grrbsd6cpB/
+99rqhT+Afm1e8q8QJ0FqWv+SJxXCjb5NwYsxDoMRBxEaIRIneWh+7X7Knludd76g
+XdmnHSMU6okxuYLogzVWcdG/4bjsgBHc6P3fXJgDYPRHIpyDPT3CrMBWylREduXq
+9jc2z7VAxltQjl/zpkM0Ur+WSbAdib/nSRpFdB2ysIhLM9tIVRCOkNmrnz0HMPJz
+HbZmueNlJz4dQwwz2jEGsu4R0UPET/FTsEAc1CgVG1x2HPTu9j35AIrJB1thFGJb
+uOwTl9+QDdtD3O8Z6HmOc/FNO+vVPwLQRH+pOcrne8E4WmagpmRRxFNBWs+A8Cad
+myzWrCqi0A+2NE6WZUYd4cAAUmrwpCs6ZL2PexJty0e4Z3CJNptvGdRaDxt/skP2
+PnuVxG7/a5RkesbizPGqNnfPEIZ7zUTWDexkVhUJLGpIu0uI3ghOs9EmZvFn4hkN
+XPNtfqluTvntPJ1zihrD9pWdNZTEndXnhtVgJ/GojbxdcW3I7SgH6YtlvMi9G1Ok
+ZSA6hJi4MQcNswIDAQABoAAwDQYJKoZIhvcNAQELBQADggIBAMzv/L6dunLmeQ9a
+2ZU1gMZuoy8JwGeyNEBPGO/5+7mQtrQDW04pIafRu/jZON3o7S/EUn6Aa6CjCTnB
+jg4OBzZgdIlmT142e7F+FbkyhccmM/AThije7mZem3KELNpMnpqLIWHqrQFF/9f7
+jEgTlk9Vm2LmTDp80GefN/MpQjzWlvNK4kkuIgGOJlUuv6hRqiTBgVBCer5MGCXG
+FwFm55S8DCyf9VV5IywylRllr9e1IZhLHlN0SRO1R4b0URhZe7LEch/qxVIRvv+4
+wGwA7OTYnQK3kw3/EOW+Qok13PMSKUbjat/byFIYWAo/M5MPcHj4PKVNEn4YJoAY
+vRAYaJR0lIIjt54yTRfHCAeoahhJhhI9TmKQi+0DVYKCiMy4O7nHMZt2gik8XI8W
+kiIejp5+hZQdgtExdKvz3vayhL4m03AioT5xmgIqdLbMdlB902qCmRljjKPCVmBr
+3UJTYBw8dXL4iTi9FtcbxjJVq0yf86bg1dzxyGm2zkeSGVLBJUbGMhHlnFw9oK52
+Ycx2ktiNmkQ3bZVOcUI88At9xFXEqkkaIViphd1l73INhko7WF42N2H/2dMBMq1C
+ojOrycGqkf/BUi44+dM9F/mIgT2PdOqDYmG/fJo7vIh2YeWN9rANwkFzqZ67UD9Y
++2I4SAGBQJcm66VCrtZrL5rWr98L
+-----END CERTIFICATE REQUEST-----
+cscuser@cscuser:~$ openssl rsa -in server.key -out server.key.insecure
+Could not open file or uri for loading private key from server.key
+4067D8C2287F0000:error:16000069:STORE routines:ossl_store_get0_loader_int:unregistered scheme:../crypto/store/store_register.c:237:scheme=file
+4067D8C2287F0000:error:80000002:system library:file_open:No such file or directory:../providers/implementations/storemgmt/file_store.c:267:calling stat(server.key)
+cscuser@cscuser:~$ openssl rsa -in csc405.key -out csc405.key.insecure
+Enter pass phrase for csc405.key:
+writing RSA key
+cscuser@cscuser:~$ mv csc405.key csc405.key.secure
+cscuser@cscuser:~$ mv csc405.key.insecure csc405.key
+cscuser@cscuser:~$ openssl genrsa -des3 -out ca.key 4096
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+cscuser@cscuser:~$ openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+Enter pass phrase for ca.key:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:SL
+State or Province Name (full name) [Some-State]:Nothern 
+Locality Name (eg, city) []:Jaffna
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:UOJ
+Organizational Unit Name (eg, section) []:DCS
+Common Name (e.g. server FQDN or YOUR name) []:.
+Email Address []:.
+cscuser@cscuser:~$ 
+openssl genrsa -des3 -out server.key 4096
+Enter PEM pass phrase:
+40A7014F617F0000:error:14000065:UI routines:UI_set_result_ex:result too small:../crypto/ui/ui_lib.c:884:You must type in 4 to 1024 characters
+40A7014F617F0000:error:1400006B:UI routines:UI_process:processing error:../crypto/ui/ui_lib.c:544:while reading strings
+40A7014F617F0000:error:0480006D:PEM routines:PEM_def_callback:problems getting password:../crypto/pem/pem_lib.c:62:
+40A7014F617F0000:error:07880109:common libcrypto routines:do_ui_passphrase:interrupted or cancelled:../crypto/passphrase.c:184:
+40A7014F617F0000:error:1C80009F:Provider routines:p8info_to_encp8:unable to get passphrase:../providers/implementations/encode_decode/encode_key2any.c:116:
+cscuser@cscuser:~$ openssl genrsa -des3 -out csc405.key 4096
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+Verify failure
+4027D379ED7F0000:error:1400006B:UI routines:UI_process:processing error:../crypto/ui/ui_lib.c:544:while reading strings
+4027D379ED7F0000:error:0480006D:PEM routines:PEM_def_callback:problems getting password:../crypto/pem/pem_lib.c:62:
+4027D379ED7F0000:error:07880109:common libcrypto routines:do_ui_passphrase:interrupted or cancelled:../crypto/passphrase.c:184:
+4027D379ED7F0000:error:1C80009F:Provider routines:p8info_to_encp8:unable to get passphrase:../providers/implementations/encode_decode/encode_key2any.c:116:
+cscuser@cscuser:~$ more csc405.csr
+-----BEGIN CERTIFICATE REQUEST-----
+MIIEkTCCAnkCAQAwTDELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB05vdGhlcm4xDzAN
+BgNVBAcMBkphZmZuYTEMMAoGA1UECgwDVU9KMQwwCgYDVQQLDANEQ1MwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDiES7DRWdJHTeJcqlwnPm9QtvDpQmu
+IE2g7X+3k4p/p5f3+Mgq7BOZocW+MQRoO9yn8TN0q2gExdp64VqLmG7JcMfAhDOx
+KGmyWXWKu8Kwzs2ZBifhixn7rtsGXTRzuQ2ptw/ETPKSr9Ao/SfR3grrbsd6cpB/
+99rqhT+Afm1e8q8QJ0FqWv+SJxXCjb5NwYsxDoMRBxEaIRIneWh+7X7Knludd76g
+XdmnHSMU6okxuYLogzVWcdG/4bjsgBHc6P3fXJgDYPRHIpyDPT3CrMBWylREduXq
+9jc2z7VAxltQjl/zpkM0Ur+WSbAdib/nSRpFdB2ysIhLM9tIVRCOkNmrnz0HMPJz
+HbZmueNlJz4dQwwz2jEGsu4R0UPET/FTsEAc1CgVG1x2HPTu9j35AIrJB1thFGJb
+uOwTl9+QDdtD3O8Z6HmOc/FNO+vVPwLQRH+pOcrne8E4WmagpmRRxFNBWs+A8Cad
+myzWrCqi0A+2NE6WZUYd4cAAUmrwpCs6ZL2PexJty0e4Z3CJNptvGdRaDxt/skP2
+PnuVxG7/a5RkesbizPGqNnfPEIZ7zUTWDexkVhUJLGpIu0uI3ghOs9EmZvFn4hkN
+XPNtfqluTvntPJ1zihrD9pWdNZTEndXnhtVgJ/GojbxdcW3I7SgH6YtlvMi9G1Ok
+ZSA6hJi4MQcNswIDAQABoAAwDQYJKoZIhvcNAQELBQADggIBAMzv/L6dunLmeQ9a
+2ZU1gMZuoy8JwGeyNEBPGO/5+7mQtrQDW04pIafRu/jZON3o7S/EUn6Aa6CjCTnB
+jg4OBzZgdIlmT142e7F+FbkyhccmM/AThije7mZem3KELNpMnpqLIWHqrQFF/9f7
+jEgTlk9Vm2LmTDp80GefN/MpQjzWlvNK4kkuIgGOJlUuv6hRqiTBgVBCer5MGCXG
+FwFm55S8DCyf9VV5IywylRllr9e1IZhLHlN0SRO1R4b0URhZe7LEch/qxVIRvv+4
+wGwA7OTYnQK3kw3/EOW+Qok13PMSKUbjat/byFIYWAo/M5MPcHj4PKVNEn4YJoAY
+vRAYaJR0lIIjt54yTRfHCAeoahhJhhI9TmKQi+0DVYKCiMy4O7nHMZt2gik8XI8W
+kiIejp5+hZQdgtExdKvz3vayhL4m03AioT5xmgIqdLbMdlB902qCmRljjKPCVmBr
+3UJTYBw8dXL4iTi9FtcbxjJVq0yf86bg1dzxyGm2zkeSGVLBJUbGMhHlnFw9oK52
+Ycx2ktiNmkQ3bZVOcUI88At9xFXEqkkaIViphd1l73INhko7WF42N2H/2dMBMq1C
+ojOrycGqkf/BUi44+dM9F/mIgT2PdOqDYmG/fJo7vIh2YeWN9rANwkFzqZ67UD9Y
++2I4SAGBQJcm66VCrtZrL5rWr98L
+-----END CERTIFICATE REQUEST-----
+cscuser@cscuser:~$ open csc405.csr
+cscuser@cscuser:~$ more csc405.crt
+-----BEGIN CERTIFICATE-----
+MIIFHzCCAwcCFGr0GLUvC1Xh9O9JNQuosKBrKk/NMA0GCSqGSIb3DQEBCwUAMEwx
+CzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdOb3RoZXJuMQ8wDQYDVQQHDAZKYWZmbmEx
+DDAKBgNVBAoMA1VPSjEMMAoGA1UECwwDRENTMB4XDTI0MDEwMzE0NTYzNFoXDTI1
+MDEwMjE0NTYzNFowTDELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB05vdGhlcm4xDzAN
+BgNVBAcMBkphZmZuYTEMMAoGA1UECgwDVU9KMQwwCgYDVQQLDANEQ1MwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDiES7DRWdJHTeJcqlwnPm9QtvDpQmu
+IE2g7X+3k4p/p5f3+Mgq7BOZocW+MQRoO9yn8TN0q2gExdp64VqLmG7JcMfAhDOx
+KGmyWXWKu8Kwzs2ZBifhixn7rtsGXTRzuQ2ptw/ETPKSr9Ao/SfR3grrbsd6cpB/
+99rqhT+Afm1e8q8QJ0FqWv+SJxXCjb5NwYsxDoMRBxEaIRIneWh+7X7Knludd76g
+XdmnHSMU6okxuYLogzVWcdG/4bjsgBHc6P3fXJgDYPRHIpyDPT3CrMBWylREduXq
+9jc2z7VAxltQjl/zpkM0Ur+WSbAdib/nSRpFdB2ysIhLM9tIVRCOkNmrnz0HMPJz
+HbZmueNlJz4dQwwz2jEGsu4R0UPET/FTsEAc1CgVG1x2HPTu9j35AIrJB1thFGJb
+uOwTl9+QDdtD3O8Z6HmOc/FNO+vVPwLQRH+pOcrne8E4WmagpmRRxFNBWs+A8Cad
+myzWrCqi0A+2NE6WZUYd4cAAUmrwpCs6ZL2PexJty0e4Z3CJNptvGdRaDxt/skP2
+PnuVxG7/a5RkesbizPGqNnfPEIZ7zUTWDexkVhUJLGpIu0uI3ghOs9EmZvFn4hkN
+XPNtfqluTvntPJ1zihrD9pWdNZTEndXnhtVgJ/GojbxdcW3I7SgH6YtlvMi9G1Ok
+ZSA6hJi4MQcNswIDAQABMA0GCSqGSIb3DQEBCwUAA4ICAQCFCttcJKVAitkKhjqi
+eAXRgQeNR4ntpjZDAFWXjuylIg5u846UA/6QRcGQd03a2pNXibUhJ6B2lZXTyrmf
+Hz+ooVvau+heIhMqDIAgIggYFUg6mxbVAwYLh4mhXTCn5GBVGNmo4uK9I5dELFjD
+0WcnPCSROF2rONpOBpdJmwyv0moe9jsguOlcsbxdss3krRXCqSSQhJymXqKwnAIH
+iwgXHGIIeBihXBKwVmizwM1Tfw+HS6JTMajSxiF3nmTpi84E4np39QXQXboq9M6h
+QO+RiamAkELmNt+H8YmzuqwtyTfrFZ4E896YpGNbXMUlZOQFG+37I3foZr0XAC4H
+aWFTD7Tx58AQGfRxN6YoeY4B2sdTqZ7hpxkkB1MyE8yhY/z2ipw/XMHbderh/VDe
+uY4z1qxxtKrLdo45bY7Ka2p67XssoV6A3/xbS0tacEJiLKDHAP/AJE4jM4CEKyKz
+uHNgjh40mcxj0RPxcDmB6lBtT+BfklS5HF1oC7y+YuebJL2XiKRX/2y9PH4nI3wi
+JxG4TEZKjcDcmIZs1BjvmWbwj354OPjDAGIvLR+mFpr96U9h4kgkBLmgLVb+M3lx
+VrHk5IRn9EH6ENORpoWghcXPJKWI37ZmSlIvv0ZnPZ17sBXT9N1srzrvKqGGYwoF
+FChQIXxGFnIl2wvpN5x/gko8Iw==
+-----END CERTIFICATE-----
+cscuser@cscuser:~$ open csc405.crt
+cscuser@cscuser:~$ open csc405.csr
